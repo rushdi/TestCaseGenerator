@@ -1,0 +1,70 @@
+<<Meta Data>>
+<Chapter Number>:[1.2.0.1]
+<ID>: [V&VM101]
+<Test Case Title>: [Vector Addition]
+<Test Case Description>: [Randomly take two 64 bit values and make input file then pass to the vector addition function for the output. The system also create reference output file then it will check output and refereance output for the system.]
+
+<<Environment>>
+<Source Path>:[/home/student]
+<Remote Path>:[/home/student]
+<Source Folder Name>:[/workspace/TestCaseGenerator/robotTestcase]
+<Created Remote Folder Name>:[/VectorAdd]
+<Copy Source File Name>:[/input.txt]
+<Copy Target File Name>:[/output.txt]
+<Execute Remote File Name>: [addVector.py]
+<Output File Name>:[/output.txt]
+<Reference Output File Name>:[/RefOutput.txt]
+<Remote Output Folder Name>:[/Output]
+<Delete Remote Folder Name>:[/VectorAdd]
+<Delete Remote File Name>:[/input.txt]
+
+<<Input>>
+<Remote Host>:[10.66.241.110]
+<Remote Username>:[student]
+<Remote Password>:[student]
+<Input File Name>:[input.in]
+<Reference Output File Name>:[refOutput.out]
+<Value Range>:[8 bit]
+
+<<Cases>>
+<Case>:[1]
+<Case Title>:[Login to Remote Machine]
+<Case Description>:[Login to Remote Machine with username and password]
+<Value>:[SSH-login to remote machine]
+
+<Case>:[2]
+<Case Title>:[Create Folder to Remote Machine]
+<Case Description>:[Create Folder to Remote Machine with mode 777]
+<Value>:[mkdir to remote machine]
+
+<Case>:[3]
+<Case Title>:[Copy File to Remote Machine]
+<Case Description>:[Copy All Files Source to Remote Machine]
+<Value>:[scp source to remote]
+
+<Case>:[4]
+<Case Title>:[Execute Testcase to Remote Machine]
+<Case Description>:[Execute Testcase to Remote Machine]
+<Value>:[execute method to remote machine]
+<Method Name>:[vectorAddition()]
+<Passing Parameter>:[inputOne;inputTwo;inputThree]
+
+<Case>:[5]
+<Case Title>:[Copy File to Source Machine]
+<Case Description>:[Copy All Files Remote Machine to Source]
+<Value>:[scp remote to source]
+
+<Case>:[6]
+<Case Title>:[Delete File from Remote Machine]
+<Case Description>:[Delete All Files from Remote Machine]
+<Value>:[del target files]
+
+<Case>:[7]
+<Case Title>:[Logout from Remote Machine]
+<Case Description>:[Logout from Remote Machine]
+<Value>:[logout from remote machine]
+
+<Case>:[8]
+<Case Title>:[Checking Value in Source Machine]
+<Case Description>:[Compare output with reference output]
+<Value>:[compare reference output with original output]

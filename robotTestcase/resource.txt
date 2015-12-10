@@ -1,0 +1,21 @@
+*** Variables ***
+
+${Source Path}		/home/student
+${Remote Path}		/home/student
+${Source Folder Name}		/workspace/TestCaseGenerator/robotTestcase
+${Created Remote Folder Name}		/VectorAdd
+${Copy Source File Name}		/input.txt
+${Copy Target File Name}		/output.txt
+${Execute Remote File Name}		addVector.py
+${Output File Name}		/output.txt
+${Reference Output File Name}		/RefOutput.txt
+${Remote Output Folder Name}		/Output
+${Delete Remote Folder Name}		/VectorAdd
+${Delete Remote File Name}		/input.txt
+${Remote Host}		10.66.241.110
+${Remote Username}		student
+${Remote Password}		student
+${Input File Name}		input.in
+${Reference Output File Name}		refOutput.out
+${Value Range}		8 bit
+${Directory Created Command}		mkdir -m 777

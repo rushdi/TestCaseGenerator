@@ -1,0 +1,4 @@
+dataRange=8
+inputOne=128
+inputTwo=0
+inputThree=214

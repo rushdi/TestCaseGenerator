@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20151204 15:25:52.403" generator="Robot 2.9.2 (Python 2.7.5 on linux2)">
+<suite source="/home/student/workspace/TestCaseGenerator/robotTestcase/vectorAdditionTestcase.robot" id="s1" name="vectorAdditionTestcase">
+<test id="s1-t1" name="Case 1: Login to Remote Machine">
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${Remote Host}</arg>
+</arguments>
+<status status="PASS" endtime="20151204 15:25:52.628" starttime="20151204 15:25:52.627"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${Remote Username}</arg>
+<arg>${Remote Password}</arg>
+</arguments>
+<msg timestamp="20151204 15:25:52.630" level="INFO">Logging into '10.66.241.110:22' as 'student'.</msg>
+<msg timestamp="20151204 15:25:53.966" level="INFO">Read output: Last login: Fri Dec  4 14:36:46 2015 from 10.66.241.83
+[student@nocentstudent2 ~]$</msg>
+<status status="PASS" endtime="20151204 15:25:53.967" starttime="20151204 15:25:52.629"></status>
+</kw>
+<doc>Login to Remote Machine with username and password</doc>
+<status status="PASS" endtime="20151204 15:25:53.967" critical="yes" starttime="20151204 15:25:52.626"></status>
+</test>
+<test id="s1-t2" name="Case 2: Create Folder to Remote Machine">
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>${Directory Created Command} ${Remote Path}${Created Remote Folder Name}</arg>
+<arg>both</arg>
+</arguments>
+<msg timestamp="20151204 15:25:53.971" level="INFO">Executing command 'mkdir -m 777 /home/student/VectorAdd'.</msg>
+<msg timestamp="20151204 15:25:54.015" level="INFO">Command exited with return code 1.</msg>
+<status status="PASS" endtime="20151204 15:25:54.015" starttime="20151204 15:25:53.970"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20151204 15:25:57.018" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20151204 15:25:57.018" starttime="20151204 15:25:54.016"></status>
+</kw>
+<doc>Create Folder to Remote Machine with mode 777</doc>
+<status status="PASS" endtime="20151204 15:25:57.019" critical="yes" starttime="20151204 15:25:53.968"></status>
+</test>
+<test id="s1-t3" name="Case 3: Copy File to Remote Machine">
+<kw name="Put File" library="SSHLibrary">
+<doc>Uploads file(s) from the local machine to the remote machine.</doc>
+<arguments>
+<arg>${Source Path}${Source Folder Name}${Copy Source File Name}</arg>
+<arg>${Remote Path}${Created Remote Folder Name}</arg>
+<arg>mode=0770</arg>
+</arguments>
+<msg timestamp="20151204 15:25:57.070" level="INFO">[chan 2] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20151204 15:25:57.091" level="INFO">'/home/student/workspace/TestCaseGenerator/robotTestcase/input.txt' -&gt; '/home/student/VectorAdd/input.txt'</msg>
+<status status="PASS" endtime="20151204 15:25:57.092" starttime="20151204 15:25:57.021"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20151204 15:26:00.094" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20151204 15:26:00.095" starttime="20151204 15:25:57.092"></status>
+</kw>
+<doc>Copy All Files Source to Remote Machine</doc>
+<status status="PASS" endtime="20151204 15:26:00.095" critical="yes" starttime="20151204 15:25:57.019"></status>
+</test>
+<test id="s1-t4" name="Case 4: Execute Testcase to Remote Machine">
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>python ${Execute Remote File Name}</arg>
+<arg>both</arg>
+</arguments>
+<msg timestamp="20151204 15:26:00.098" level="INFO">Executing command 'python addVector.py'.</msg>
+<msg timestamp="20151204 15:26:00.165" level="INFO">Command exited with return code 0.</msg>
+<status status="PASS" endtime="20151204 15:26:00.165" starttime="20151204 15:26:00.098"></status>
+</kw>
+<doc>Execute Testcase to Remote Machine</doc>
+<status status="PASS" endtime="20151204 15:26:00.166" critical="yes" starttime="20151204 15:26:00.096"></status>
+</test>
+<test id="s1-t5" name="Case 5: Copy File to Source Machine">
+<kw name="Get File" library="SSHLibrary">
+<doc>Downloads file(s) from the remote machine to the local machine.</doc>
+<arguments>
+<arg>${Remote Path}${Created Remote Folder Name}${Copy Target File Name}</arg>
+<arg>${Source Path}${Source Folder Name}/</arg>
+</arguments>
+<msg timestamp="20151204 15:26:00.169" level="WARN">Keyword 'Get File' found both from a custom test library 'SSHLibrary' and a standard library 'OperatingSystem'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SSHLibrary.Get File' or 'OperatingSystem.Get File'.</msg>
+<msg timestamp="20151204 15:26:00.228" level="INFO">'/home/student/VectorAdd/output.txt' -&gt; '/home/student/workspace/TestCaseGenerator/robotTestcase/output.txt'</msg>
+<status status="PASS" endtime="20151204 15:26:00.228" starttime="20151204 15:26:00.169"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20151204 15:26:03.231" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20151204 15:26:03.231" starttime="20151204 15:26:00.229"></status>
+</kw>
+<doc>Copy All Files Remote Machine to Source</doc>
+<status status="PASS" endtime="20151204 15:26:03.232" critical="yes" starttime="20151204 15:26:00.167"></status>
+</test>
+<test id="s1-t6" name="Case 6: Delete File from Remote Machine">
+<kw name="Remove File" library="OperatingSystem">
+<doc>Removes a file with the given path.</doc>
+<arguments>
+<arg>${Remote Path}${Delete Remote Folder Name}${Delete Remote File Name}</arg>
+</arguments>
+<msg timestamp="20151204 15:26:03.236" html="yes" level="INFO">File '&lt;a href="file:///home/student/VectorAdd/input.txt"&gt;/home/student/VectorAdd/input.txt&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" endtime="20151204 15:26:03.236" starttime="20151204 15:26:03.234"></status>
+</kw>
+<doc>Delete All Files from Remote Machine</doc>
+<status status="PASS" endtime="20151204 15:26:03.237" critical="yes" starttime="20151204 15:26:03.232"></status>
+</test>
+<test id="s1-t7" name="Case 7: Logout from Remote Machine">
+<kw name="Close All Connections" library="SSHLibrary">
+<doc>Closes all open connections.</doc>
+<status status="PASS" endtime="20151204 15:26:03.311" starttime="20151204 15:26:03.239"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20151204 15:26:06.313" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20151204 15:26:06.314" starttime="20151204 15:26:03.311"></status>
+</kw>
+<doc>Logout from Remote Machine</doc>
+<status status="PASS" endtime="20151204 15:26:06.314" critical="yes" starttime="20151204 15:26:03.238"></status>
+</test>
+<test id="s1-t8" name="Case 8: Checking Value in Source Machine">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>python</arg>
+<arg>../src/controller/valueCompare.py</arg>
+<arg>print 'Execute python'</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20151204 15:26:06.318" level="INFO">Starting process:
+python ../src/controller/valueCompare.py "print 'Execute python'"</msg>
+<msg timestamp="20151204 15:26:06.323" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20151204 15:26:06.410" level="INFO">Process completed.</msg>
+<msg timestamp="20151204 15:26:06.410" level="INFO">${x} = &lt;result object with rc 1&gt;</msg>
+<status status="PASS" endtime="20151204 15:26:06.411" starttime="20151204 15:26:06.317"></status>
+</kw>
+<doc>Compare output with reference output</doc>
+<status status="PASS" endtime="20151204 15:26:06.411" critical="yes" starttime="20151204 15:26:06.315"></status>
+</test>
+<doc>Current Testcase Documentation</doc>
+<status status="PASS" endtime="20151204 15:26:06.414" starttime="20151204 15:25:52.405"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="8">Critical Tests</stat>
+<stat fail="0" pass="8">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="vectorAdditionTestcase" pass="8">vectorAdditionTestcase</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20151204 15:25:52.389" level="ERROR">Error in file '/home/student/workspace/TestCaseGenerator/robotTestcase/vectorAdditionTestcase.robot': Non-existing setting '...Chapter Number'.</msg>
+<msg timestamp="20151204 15:25:52.389" level="ERROR">Error in file '/home/student/workspace/TestCaseGenerator/robotTestcase/vectorAdditionTestcase.robot': Non-existing setting '...ID'.</msg>
+<msg timestamp="20151204 15:25:52.389" level="ERROR">Error in file '/home/student/workspace/TestCaseGenerator/robotTestcase/vectorAdditionTestcase.robot': Non-existing setting '...Test Case Title'.</msg>
+<msg timestamp="20151204 15:25:52.390" level="ERROR">Error in file '/home/student/workspace/TestCaseGenerator/robotTestcase/vectorAdditionTestcase.robot': Non-existing setting '...Test Case Description'.</msg>
+<msg timestamp="20151204 15:25:52.616" level="WARN">Imported resource file '/home/student/workspace/TestCaseGenerator/robotTestcase/input.txt' is empty.</msg>
+<msg timestamp="20151204 15:26:00.169" level="WARN">Keyword 'Get File' found both from a custom test library 'SSHLibrary' and a standard library 'OperatingSystem'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SSHLibrary.Get File' or 'OperatingSystem.Get File'.</msg>
+</errors>
+</robot>

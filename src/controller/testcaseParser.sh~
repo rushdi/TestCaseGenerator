@@ -1,0 +1,3 @@
+#!/bin/sh
+
+python -m /home/student/workspace/TestCaseGenerator/src/controller/testcaseParser.py
